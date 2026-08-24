@@ -1,1 +1,3 @@
-# robotics-software_template
+# Team Cortex
+
+## Cura - Medical Component Transport Robot
