@@ -1,0 +1,375 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sdf version="1.7">
+<world name="hospital_ward">
+
+    <!-- LIGHT -->
+    <light name="sun" type="directional">
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>1 1 1 1</diffuse>
+      <direction>-0.5 0.1 -1</direction>
+    </light>
+
+    <gravity>0 0 -9.8</gravity>
+
+    <model name="hospital_ward">
+        <static>true</static>
+        
+        <link name="floor">
+            <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+            <inertial>
+                <mass>700.0000000000002</mass>
+                <pose>0.0 1.1920928955078121e-15 -0.005 0.0 0.0 0.0</pose>
+                <inertia>
+                    <ixx>5833.339166666666</ixx>
+                    <iyy>5833.339166666671</iyy>
+                    <izz>11666.666666666672</izz>
+                    <ixy>4.2724609375e-12</ixy>
+                    <iyz>7.888609052210118e-31</iyz>
+                    <ixz>0.0</ixz>
+                </inertia>
+            </inertial>
+            <visual name="floor_visual">
+                <geometry>
+                    <mesh>
+                        <uri>model://hospital_ward/meshes/floor.stl</uri>
+                        <scale>0.001 0.001 0.001</scale>
+                    </mesh>
+                </geometry>
+                <material>
+                    <ambient>0.55 0.32 0.15 1</ambient>
+                    <diffuse>0.72 0.45 0.22 1</diffuse>
+                    <specular>0.15 0.10 0.05 1</specular>
+                </material>
+            </visual>
+            <collision name="floor_collision">
+                <geometry>
+                    <mesh>
+                        <uri>model://hospital_ward/meshes/floor.stl</uri>
+                        <scale>0.001 0.001 0.001</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+        </link>
+        <link name="walls">
+            <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+            <inertial>
+                <mass>1094.6031250000026</mass>
+                <pose>-0.030849187633637296 0.1050802873758504 0.791786906213155 0.0 0.0 0.0</pose>
+                <inertia>
+                    <ixx>2592.177456302875</ixx>
+                    <iyy>2805.2245396439394</iyy>
+                    <izz>4949.309080114732</izz>
+                    <ixy>-40.26105847663377</ixy>
+                    <iyz>15.712100280535424</iyz>
+                    <ixz>1.2063336772323154</ixz>
+                </inertia>
+            </inertial>
+            <visual name="walls_visual">
+                <geometry>
+                    <mesh>
+                        <uri>model://hospital_ward/meshes/walls.stl</uri>
+                        <scale>0.001 0.001 0.001</scale>
+                    </mesh>
+                </geometry>
+                <material>
+                    <ambient>0.85 0.78 0.62 1</ambient>
+                    <diffuse>0.96 0.90 0.75 1</diffuse>
+                    <specular>0.20 0.18 0.12 1</specular>
+                </material>
+            </visual>
+            <collision name="walls_collision">
+                <geometry>
+                    <mesh>
+                        <uri>model://hospital_ward/meshes/walls.stl</uri>
+                        <scale>0.001 0.001 0.001</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+        </link>
+        <link name="roof">
+            <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+            <inertial>
+                <mass>1256.0</mass>
+                <pose>4.656612873077393e-16 4.656612873077393e-16 1.555 0.0 0.0 0.0</pose>
+                <inertia>
+                    <ixx>1674.6771333333327</ixx>
+                    <iyy>1674.6771333333327</iyy>
+                    <izz>3349.3333333333326</izz>
+                    <ixy>2.723515857283588e-28</ixy>
+                    <iyz>1.5791505575180076e-13</iyz>
+                    <ixz>1.5645287930965436e-13</ixz>
+                </inertia>
+            </inertial>
+            <visual name="roof_visual">
+                <geometry>
+                    <mesh>
+                        <uri>model://hospital_ward/meshes/roof.stl</uri>
+                        <scale>0.001 0.001 0.001</scale>
+                    </mesh>
+                </geometry>
+                <material>
+                    <ambient>0.15 0.15 0.15 0.45</ambient>
+                    <diffuse>0.15 0.15 0.15 0.45</diffuse>
+                    <specular>0.35 0.45 0.60 0.45</specular>
+                    <transparency>0.75</transparency>
+                </material>
+            </visual>
+            <collision name="roof_collision">
+                <geometry>
+                    <mesh>
+                        <uri>model://hospital_ward/meshes/roof.stl</uri>
+                        <scale>0.001 0.001 0.001</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+        </link>
+        <!-- <link name="plus">
+            <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+            <inertial>
+                <mass>1.7662500000000052</mass>
+                <pose>7.275957614183404e-16 -2.0050000000000003 1.375 0.0 0.0 0.0</pose>
+                <inertia>
+                    <ixx>0.005288937500001367</ixx>
+                    <iyy>0.010548437499999785</iyy>
+                    <izz>0.005288937500001367</izz>
+                    <ixy>-2.570232027210335e-17</ixy>
+                    <iyz>-8.881784197001252e-16</iyz>
+                    <ixz>6.496975402114904e-17</ixz>
+                </inertia>
+            </inertial>
+            <visual name="_visual">
+                <geometry>
+                    <mesh>
+                        <uri>model://hospital_ward/meshes/plus.stl</uri>
+                        <scale>0.001 0.001 0.001</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+            <collision name="_collision">
+                <geometry>
+                    <mesh>
+                        <uri>model://hospital_ward/meshes/plus.stl</uri>
+                        <scale>0.001 0.001 0.001</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+        </link> -->
+        <link name="nurse_station">
+            <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+            <inertial>
+                <mass>0.5737033580672004</mass>
+                <pose>1.6071550117818212 0.7450000000000003 1.3607454943415036 0.0 0.0 0.0</pose>
+                <inertia>
+                    <ixx>9.137893924404672e-05</ixx>
+                    <iyy>0.009393644172799753</iyy>
+                    <izz>0.009311826956189817</izz>
+                    <ixy>0.0</ixy>
+                    <iyz>0.0</iyz>
+                    <ixz>0.00010574389182349542</ixz>
+                </inertia>
+            </inertial>
+            <visual name="nurse_station_visual">
+                <geometry>
+                    <mesh>
+                        <uri>model://hospital_ward/meshes/nurse_station.stl</uri>
+                        <scale>0.001 0.001 0.001</scale>
+                    </mesh>
+                </geometry>
+                <material>
+                    <ambient>0.20 0.55 0.30 1</ambient>
+                    <diffuse>0.25 0.70 0.35 1</diffuse>
+                    <specular>0.20 0.20 0.20 1</specular>
+                </material>
+            </visual>
+            <collision name="nurse_station_collision">
+                <geometry>
+                    <mesh>
+                        <uri>model://hospital_ward/meshes/nurse_station.stl</uri>
+                        <scale>0.001 0.001 0.001</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+        </link>
+        <link name="emergency_room">
+            <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+            <inertial>
+                <mass>0.7761199603562943</mass>
+                <pose>0.24298080950357473 0.7450000000000003 1.3703959767179885 0.0 0.0 0.0</pose>
+                <inertia>
+                    <ixx>0.0012732438507960797</ixx>
+                    <iyy>0.0072690316652743725</iyy>
+                    <izz>0.006008723147151673</izz>
+                    <ixy>0.0</ixy>
+                    <iyz>1.1102230246251565e-16</iyz>
+                    <ixz>0.00019928097962074176</ixz>
+                </inertia>
+            </inertial>
+            <visual name="emergency_room_visual">
+                <geometry>
+                    <mesh>
+                        <uri>model://hospital_ward/meshes/emergency_room.stl</uri>
+                        <scale>0.001 0.001 0.001</scale>
+                    </mesh>
+                </geometry>
+                <material>
+                    <ambient>0.75 0.15 0.12 1</ambient>
+                    <diffuse>0.90 0.20 0.15 1</diffuse>
+                    <specular>0.20 0.20 0.20 1</specular>
+                </material>
+            </visual>
+            <collision name="emergency_room_collision">
+                <geometry>
+                    <mesh>
+                        <uri>model://hospital_ward/meshes/emergency_room.stl</uri>
+                        <scale>0.001 0.001 0.001</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+        </link>
+        <link name="special_room">
+            <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+            <inertial>
+                <mass>0.6283107157480153</mass>
+                <pose>-0.8166449208407899 0.7450000000000001 1.3576560568693046 0.0 0.0 0.0</pose>
+                <inertia>
+                    <ixx>0.00011200762586449642</ixx>
+                    <iyy>0.010205938383327506</iyy>
+                    <izz>0.010104402602725271</izz>
+                    <ixy>2.7755575615628914e-16</ixy>
+                    <iyz>-1.1102230246251565e-16</iyz>
+                    <ixz>-1.5399511376079644e-06</ixz>
+                </inertia>
+            </inertial>
+            <visual name="special_room_visual">
+                <geometry>
+                    <mesh>
+                        <uri>model://hospital_ward/meshes/special_room.stl</uri>
+                        <scale>0.001 0.001 0.001</scale>
+                    </mesh>
+                </geometry>
+                <material>
+                    <ambient>0.55 0.25 0.65 1</ambient>
+                    <diffuse>0.68 0.32 0.78 1</diffuse>
+                    <specular>0.20 0.20 0.20 1</specular>
+                </material>
+            </visual>
+            <collision name="special_room_collision">
+                <geometry>
+                    <mesh>
+                        <uri>model://hospital_ward/meshes/special_room.stl</uri>
+                        <scale>0.001 0.001 0.001</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+        </link>
+        <link name="medicine_center">
+            <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+            <inertial>
+                <mass>0.707826254614348</mass>
+                <pose>-1.145 0.08490002565810896 1.3576282688276036 0.0 0.0 0.0</pose>
+                <inertia>
+                    <ixx>0.01680203116403911</ixx>
+                    <iyy>0.00012371430095647895</iyy>
+                    <izz>0.016690113967327558</izz>
+                    <ixy>1.3877787807814457e-17</ixy>
+                    <iyz>0.00016925008051262014</iyz>
+                    <ixz>0.0</ixz>
+                </inertia>
+            </inertial>
+            <visual name="medicine_center_visual">
+                <geometry>
+                    <mesh>
+                        <uri>model://hospital_ward/meshes/medicine_center.stl</uri>
+                        <scale>0.001 0.001 0.001</scale>
+                    </mesh>
+                </geometry>
+                <material>
+                    <ambient>0.85 0.55 0.08 1</ambient>
+                    <diffuse>1.00 0.68 0.10 1</diffuse>
+                    <specular>0.25 0.25 0.20 1</specular>
+                </material>
+            </visual>
+            <collision name="medicine_center_collision">
+                <geometry>
+                    <mesh>
+                        <uri>model://hospital_ward/meshes/medicine_center.stl</uri>
+                        <scale>0.001 0.001 0.001</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+        </link>
+        <link name="toilet">
+            <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+            <inertial>
+                <mass>0.26409504653773674</mass>
+                <pose>-1.6003754449339551 -1.1450000000000005 1.3750518972284582 0.0 0.0 0.0</pose>
+                <inertia>
+                    <ixx>5.2862920195351215e-05</ixx>
+                    <iyy>0.0006750729579001469</iyy>
+                    <izz>0.0006266116218134332</izz>
+                    <ixy>1.1102230246251565e-16</ixy>
+                    <iyz>-2.7755575615628914e-16</iyz>
+                    <ixz>-2.809338190379318e-05</ixz>
+                </inertia>
+            </inertial>
+            <visual name="toilet_visual">
+                <geometry>
+                    <mesh>
+                        <uri>model://hospital_ward/meshes/toilet.stl</uri>
+                        <scale>0.001 0.001 0.001</scale>
+                    </mesh>
+                </geometry>
+                <material>
+                    <ambient>0.15 0.50 0.70 1</ambient>
+                    <diffuse>0.20 0.65 0.85 1</diffuse>
+                    <specular>0.30 0.35 0.40 1</specular>
+                </material>
+            </visual>
+            <collision name="toilet_collision">
+                <geometry>
+                    <mesh>
+                        <uri>model://hospital_ward/meshes/toilet.stl</uri>
+                        <scale>0.001 0.001 0.001</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+        </link>
+        <link name="quarantine_room">
+            <pose>0.0 0.0 0.0 0.0 -0.0 0.0</pose>
+            <inertial>
+                <mass>0.816793884515687</mass>
+                <pose>0.7450000000000004 -0.8191530642085314 1.3756931976745954 0.0 0.0 0.0</pose>
+                <inertia>
+                    <ixx>0.008358111797153178</ixx>
+                    <iyy>0.001340517161198651</iyy>
+                    <izz>0.0070312078673631095</izz>
+                    <ixy>0.0</ixy>
+                    <iyz>-6.851335077784348e-05</iyz>
+                    <ixz>2.220446049250313e-16</ixz>
+                </inertia>
+            </inertial>
+            <visual name="quarantine_room_visual">
+                <geometry>
+                    <mesh>
+                        <uri>model://hospital_ward/meshes/quarantine_room.stl</uri>
+                        <scale>0.001 0.001 0.001</scale>
+                    </mesh>
+                </geometry>
+                <material>
+                    <ambient>0.65 0.55 0.08 1</ambient>
+                    <diffuse>0.80 0.68 0.10 1</diffuse>
+                    <specular>0.25 0.25 0.20 1</specular>
+                </material>
+            </visual>
+            <collision name="quarantine_room_collision">
+                <geometry>
+                    <mesh>
+                        <uri>model://hospital_ward/meshes/quarantine_room.stl</uri>
+                        <scale>0.001 0.001 0.001</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+        </link>
+    </model>
+</world>
+</sdf>

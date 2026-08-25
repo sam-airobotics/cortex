@@ -32,9 +32,9 @@ def generate_launch_description():
     ekf_config_file = os.path.join(pkg_share, 'config', 'ekf.yaml')
 
     # === ADDED: Path to your custom world ===
-    world_file_name = 'model.sdf' # Change this if your world file has a different name
+    world_file_name = 'hospital_ward.sdf' # Change this if your world file has a different name
     world_file = 'empty.sdf'  # Default to empty world if the specified world file is not found
-    world_path = os.path.join(pkg_share, 'world', world_file_name)
+    world_path = os.path.join(pkg_share, 'hospital_ward', world_file_name)
 
     # Process Xacro
     doc = xacro.process_file(xacro_file)
@@ -54,6 +54,17 @@ def generate_launch_description():
     pkg_share = get_package_share_directory(pkg_name)
 
     gazebo_resource_path = os.path.dirname(pkg_share)
+
+    hospital_model_path = os.path.join(
+        pkg_share,
+        'hospital_ward'
+    )
+
+    gazebo_resource_path = os.pathsep.join([
+        os.path.dirname(pkg_share),
+        pkg_share,
+        hospital_model_path
+    ])
 
     set_gazebo_resource_path = SetEnvironmentVariable(
         name='GZ_SIM_RESOURCE_PATH',
@@ -93,7 +104,13 @@ def generate_launch_description():
         arguments=[
             '-topic', 'robot_description',
             '-name', 'cura',
-            '-z', '0.1',  
+            # Spawn at hospital entrance
+            '-x', '0.0',
+            '-y', '-2.5',
+            '-z', '0.1',
+
+            # Face into the hospital (+Y direction)
+            '-Y', '1.5708',
         ],
         output='screen'
     )

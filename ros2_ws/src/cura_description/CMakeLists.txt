@@ -26,6 +26,6 @@ endif()
 ament_package()
 
 install(
-  DIRECTORY config launch urdf meshes rviz world
+  DIRECTORY config launch urdf meshes rviz hospital_ward
   DESTINATION share/${PROJECT_NAME}
 )
