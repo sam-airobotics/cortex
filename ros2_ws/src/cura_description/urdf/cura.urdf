@@ -190,6 +190,27 @@
             </geometry>
         </collision>
     </link>
+
+    <link name="lidar_link">
+        <inertial>
+            <origin xyz="7.116039687743801e-18 0.0 -0.020198259768853668" rpy="0.0 0.0 0.0" />
+            <mass value="1.2541268954019027" />
+            <inertia ixx="0.0005611320175222303" iyy="0.0005611320175222528" izz="0.0007797876536401378" ixy="3.5697667044587433e-19" iyz="0.0" ixz="-1.769352804218788e-21" />
+        </inertial>
+        <visual name="lidar_link_visual">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://cura_description/meshes/lidar_link.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="lidar_link_collision">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://cura_description/meshes/lidar_link.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    
     <joint name="base_link_sanitation_tank_joint" type="fixed">
         <origin xyz="0.13 0.0 0.008" rpy="0.0 -0.0 1.5707963267948966" />
         <parent link="base_link" />

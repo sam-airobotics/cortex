@@ -208,6 +208,27 @@
         </collision>
     </link>
 
+    <link name="lidar_link">
+        <inertial>
+            <origin xyz="7.116039687743801e-18 0.0 -0.020198259768853668" rpy="0.0 0.0 0.0" />
+            <mass value="1.2541268954019027" />
+            <inertia ixx="0.0005611320175222303" iyy="0.0005611320175222528" izz="0.0007797876536401378" ixy="3.5697667044587433e-19" iyz="0.0" ixz="-1.769352804218788e-21" />
+        </inertial>
+        <visual name="lidar_link_visual">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://cura_description/meshes/lidar_link.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+            <material name="hmi"/>
+        </visual>
+        <collision name="lidar_link_collision">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://cura_description/meshes/lidar_link.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+
     <joint name="base_link_joint" type="fixed">
         <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0" />
         <parent link="base_footprint" />
@@ -262,4 +283,9 @@
         <parent link="sanitation_tank" />
         <child link="storage_link" />
     </joint>
-</robot>
+    <joint name="lidar_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="0.0 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="lidar_link"/>
+    </joint>
+</robot>    
