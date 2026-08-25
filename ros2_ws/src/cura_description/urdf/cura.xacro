@@ -87,21 +87,23 @@
             </geometry>
         </collision>
     </link>
+    
+    <!--Wheels-->
     <link name="f_wheel_r">
         <inertial>
-            <origin xyz="-1.1546319456101628e-15 -4.440892098500626e-18 -0.007500000000000018" rpy="0.0 -0.0 0.0" />
+            <origin xyz="-1.1546319456101628e-15 1.7763568394002505e-17 -0.007500000000000018" rpy="0.0 -0.0 0.0" />
             <mass value="0.12238212935734573" />
-            <inertia ixx="7.781462317218903e-05" iyy="7.78146231719323e-05" izz="0.00015114632321814475" ixy="0.0" iyz="1.0842021724855044e-19" ixz="-2.168404344971009e-19" />
+            <inertia ixx="7.781462317218947e-05" iyy="7.78146231719323e-05" izz="0.00015114632321814496" ixy="0.0" iyz="-2.710505431213761e-19" ixz="-2.168404344971009e-19" />
         </inertial>
-        <visual name="f_wheel_r_visual">
-            <origin xyz="-0.1000000000000001 0.023000000000000007 -0.14949999999999994" rpy="-1.570796326794897 1.0547118733938981e-15 6.1629758220391534e-33" />
+        <visual name="b_wheel_r_visual">
+            <origin xyz="0.1 0.023 -0.135" rpy="-1.5707963267948963 5.551115123125789e-17 0.0" />
             <geometry>
                 <mesh filename="package://cura_description/meshes/f_wheel_r.stl" scale="0.001 0.001 0.001" />
             </geometry>
             <material name="wheels"/>
         </visual>
         <collision name="f_wheel_r_collision">
-            <origin xyz="0 0 0" rpy="0 0 -0" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
                 <cylinder radius="0.05" length="0.015"/>
             </geometry>
@@ -109,19 +111,19 @@
     </link>
     <link name="f_wheel_l">
         <inertial>
-            <origin xyz="1.1723955140041654e-15 -1.3322676295501878e-17 -0.007499999999999982" rpy="0.0 -0.0 0.0" />
-            <mass value="0.1223821293573457" />
+            <origin xyz="1.1546319456101628e-15 -1.3322676295501878e-17 -0.007499999999999982" rpy="0.0 -0.0 0.0" />
+            <mass value="0.1223821293573457"/>
             <inertia ixx="7.78146231721886e-05" iyy="7.781462317193143e-05" izz="0.00015114632321814475" ixy="-2.710505431213761e-19" iyz="-1.6263032587282567e-19" ixz="-2.168404344971009e-19" />
         </inertial>
         <visual name="f_wheel_l_visual">
-            <origin xyz="-0.09999999999999994 -0.02299999999999999 -0.149" rpy="1.5707963267948968 1.6653345369377353e-16 0.0" />
+            <origin xyz="-0.09999999999999994 -0.023 -0.149" rpy="1.5707963267948968 1.6653345369377353e-16 0.0" />
             <geometry>
                 <mesh filename="package://cura_description/meshes/f_wheel_l.stl" scale="0.001 0.001 0.001" />
             </geometry>
             <material name="wheels"/>
         </visual>
         <collision name="f_wheel_l_collision">
-            <origin xyz="0 0 0" rpy="0 0 -0" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
                 <cylinder radius="0.05" length="0.015"/>
             </geometry>
@@ -129,19 +131,19 @@
     </link>
     <link name="b_wheel_r">
         <inertial>
-            <origin xyz="-1.1723955140041654e-15 1.7763568394002505e-17 -0.007500000000000018" rpy="0.0 -0.0 0.0" />
+            <origin xyz="-1.1546319456101628e-15 -4.440892098500626e-18 -0.007500000000000018" rpy="0.0 -0.0 0.0" />
             <mass value="0.12238212935734573" />
-            <inertia ixx="7.781462317218947e-05" iyy="7.78146231719323e-05" izz="0.00015114632321814496" ixy="0.0" iyz="-2.710505431213761e-19" ixz="-2.168404344971009e-19" />
+            <inertia ixx="7.781462317218903e-05" iyy="7.78146231719323e-05" izz="0.00015114632321814475" ixy="0.0" iyz="1.0842021724855044e-19" ixz="-2.168404344971009e-19" />
         </inertial>
         <visual name="b_wheel_r_visual">
-            <origin xyz="0.09999999999999988 0.02300000000000007 -0.14949999999999994" rpy="-1.5707963267948963 -5.551115123125789e-17 1.0947644252537653e-47" />
+            <origin xyz="-0.1000000000000001 0.023 -0.135" rpy="-1.57 1.0547118733938981e-15 0.0" />
             <geometry>
                 <mesh filename="package://cura_description/meshes/b_wheel_r.stl" scale="0.001 0.001 0.001" />
             </geometry>
             <material name="wheels"/>
         </visual>
         <collision name="b_wheel_r_collision">
-            <origin xyz="0 0 0" rpy="0 0 -0" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
                 <cylinder radius="0.05" length="0.015"/>
             </geometry>
@@ -154,7 +156,7 @@
             <inertia ixx="7.781462317218773e-05" iyy="7.781462317193143e-05" izz="0.0001511463232181441" ixy="1.0842021724855044e-19" iyz="1.0842021724855044e-19" ixz="0.0" />
         </inertial>
         <visual name="b_wheel_l_visual">
-            <origin xyz="0.1 -0.023000000000000003 -0.14900000000000005" rpy="1.5707963267948963 4.996003610813204e-16 0.0" />
+            <origin xyz="0.1 -0.023 -0.14900000000000005" rpy="1.5707963267948963 4.996003610813204e-16 0.0" />
             <geometry>
                 <mesh filename="package://cura_description/meshes/b_wheel_l.stl" scale="0.001 0.001 0.001" />
             </geometry>
@@ -219,7 +221,7 @@
             <geometry>
                 <mesh filename="package://cura_description/meshes/lidar_link.stl" scale="0.001 0.001 0.001" />
             </geometry>
-            <material name="hmi"/>
+            <material name="lidar_link"/>
         </visual>
         <collision name="lidar_link_collision">
             <origin xyz="0.0 0.0 -0.0205" rpy="0.0 0.0 0.0" />
@@ -240,7 +242,7 @@
         <child link="sanitation_tank" />
     </joint>
     <joint name="f_wheel_r_revolute" type="continuous">
-        <origin xyz="0.1 -0.1495 -0.023" rpy="1.5707963267948966 -0.0 0.0" />
+        <origin xyz="-0.1 -0.1495 -0.023" rpy="-1.5707963267948966 -0.0 0.0" />
         <parent link="base_link" />
         <child link="f_wheel_r" />
         <axis xyz="0.0 0.0 1.0" />
@@ -258,7 +260,7 @@
         <axis xyz="0.0 0.0 1.0" />
     </joint>
     <joint name="b_wheel_r_revolute" type="continuous">
-        <origin xyz="-0.1 -0.1495 -0.023" rpy="1.5707963267948966 -0.0 0.0" />
+        <origin xyz="0.1 -0.1495 -0.023" rpy="-1.5707963267948966 -0.0 0.0" />
         <parent link="base_link" />
         <child link="b_wheel_r" />
         <axis xyz="0.0 0.0 1.0" />

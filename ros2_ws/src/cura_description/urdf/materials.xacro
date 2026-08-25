@@ -23,6 +23,10 @@
         <color rgba="1.00 0.75 0.00 1.0"/>
     </material>
 
+    <material name="lidar_link">
+        <color rgba="1.00 0.75 0.00 1.0"/>
+    </material>
+
     <!-- Camera - Green -->
     <material name="camera_link">
         <color rgba="0.00 0.80 0.20 1.0"/>
