@@ -7,3 +7,6 @@
 
 ### Cura in Gazebo
 ![](assets/images/cura_gazebo.png)
+
+### Cura in World
+![](assets/images/cura_world.png)
