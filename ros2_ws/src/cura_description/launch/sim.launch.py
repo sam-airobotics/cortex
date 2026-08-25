@@ -1,11 +1,15 @@
 import os
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription, DeclareLaunchArgument
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 import xacro
+from launch.actions import (
+    IncludeLaunchDescription,
+    DeclareLaunchArgument,
+    SetEnvironmentVariable
+)
 
 def generate_launch_description():
     # ========================================================================
@@ -30,7 +34,7 @@ def generate_launch_description():
     # === ADDED: Path to your custom world ===
     world_file_name = 'model.sdf' # Change this if your world file has a different name
     world_file = 'empty.sdf'  # Default to empty world if the specified world file is not found
-    world_path = os.path.join(pkg_share, 'world', 'hospital_ward', world_file_name)
+    world_path = os.path.join(pkg_share, 'world', world_file_name)
 
     # Process Xacro
     doc = xacro.process_file(xacro_file)
@@ -47,6 +51,14 @@ def generate_launch_description():
         description='Gazebo world file to load'
     )
 
+    pkg_share = get_package_share_directory(pkg_name)
+
+    gazebo_resource_path = os.path.dirname(pkg_share)
+
+    set_gazebo_resource_path = SetEnvironmentVariable(
+        name='GZ_SIM_RESOURCE_PATH',
+        value=gazebo_resource_path
+    )
     # ========================================================================
     # 3. DEFINE NODES
     # ========================================================================
@@ -81,7 +93,7 @@ def generate_launch_description():
         arguments=[
             '-topic', 'robot_description',
             '-name', 'cura',
-            '-z', '0.025',  
+            '-z', '0.1',  
         ],
         output='screen'
     )
@@ -120,7 +132,8 @@ def generate_launch_description():
     # 4. RETURN LAUNCH DESCRIPTION
     # ========================================================================
     return LaunchDescription([
-        world_arg, # <--- Added the argument here
+        world_arg,
+        set_gazebo_resource_path,
         gazebo,
         robot_state_publisher,
         spawn_entity,

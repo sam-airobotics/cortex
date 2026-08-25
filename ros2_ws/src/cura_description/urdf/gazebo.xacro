@@ -89,8 +89,6 @@
         <joint_name>f_wheel_l_revolute</joint_name>
         <joint_name>b_wheel_r_revolute</joint_name>
         <joint_name>b_wheel_l_revolute</joint_name>
-        
-        <joint_name>camera_rotation</joint_name>
     </plugin>
 </gazebo>
 
