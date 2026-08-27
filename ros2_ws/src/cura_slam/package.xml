@@ -3,7 +3,7 @@
 <package format="3">
   <name>cura_slam</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <description>SLAM2 Package for Cura</description>
   <maintainer email="sampatwardhan1112@gmail.com">sam</maintainer>
   <license>TODO: License declaration</license>
 
