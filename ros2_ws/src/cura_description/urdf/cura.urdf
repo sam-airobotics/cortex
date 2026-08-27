@@ -1,5 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <robot name="cura">
+
+    <link name="base_footprint"/>
+    
     <link name="base_link">
         <inertial>
             <origin xyz="-0.08262380653775205 -2.2286482841173966e-06 0.061297925710071505" rpy="0.0 0.0 0.0" />
@@ -9,13 +12,14 @@
         <visual name="base_link_visual">
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
             <geometry>
-                <mesh filename="meshes/base_link.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="package://cura_description/meshes/base_link.stl" scale="0.001 0.001 0.001" />
             </geometry>
+            <material name="base_link"/>
         </visual>
         <collision name="base_link_collision">
-            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <origin xyz="0.0 0.0 0.051" rpy="0.0 0.0 0.0" />
             <geometry>
-                <mesh filename="meshes/base_link.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="package://cura_description/meshes/base_link.stl" scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
     </link>
@@ -28,13 +32,14 @@
         <visual name="sanitation_tank_visual">
             <origin xyz="-4.263256414560601e-16 0.12499999999999972 -0.00800000000000008" rpy="-3.8925688692122967e-16 -6.383782391594647e-16 -1.5707963267948932" />
             <geometry>
-                <mesh filename="meshes/sanitation_tank.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="package://cura_description/meshes/sanitation_tank.stl" scale="0.001 0.001 0.001" />
             </geometry>
+            <material name="sanitization_transparent"/>
         </visual>
         <collision name="sanitation_tank_collision">
-            <origin xyz="-4.263256414560601e-16 0.12499999999999972 -0.00800000000000008" rpy="-3.8925688692122967e-16 -6.383782391594647e-16 -1.5707963267948932" />
+            <origin xyz="0 0.1 0.015" rpy="0 0 0" />
             <geometry>
-                <mesh filename="meshes/sanitation_tank.stl" scale="0.001 0.001 0.001" />
+                <box size="0.2 0.2 0.03"/>
             </geometry>
         </collision>
     </link>
@@ -47,13 +52,14 @@
         <visual name="ultrasonic_humidifier_visual">
             <origin xyz="0.0 0.008 0.08" rpy="1.5707963267948966 -1.5707963267948966 0" />
             <geometry>
-                <mesh filename="meshes/ultrasonic_humidifier.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="package://cura_description/meshes/ultrasonic_humidifier.stl" scale="0.001 0.001 0.001" />
             </geometry>
+            <material name="ultrasonic_humidifier"/>
         </visual>
         <collision name="ultrasonic_humidifier_collision">
-            <origin xyz="0.0 0.008 0.08" rpy="1.5707963267948966 -1.5707963267948966 0" />
+            <origin xyz="0.0 -0.08 0.0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="meshes/ultrasonic_humidifier.stl" scale="0.001 0.001 0.001" />
+                <cylinder radius="0.0175" length="0.0075"/>
             </geometry>
         </collision>
     </link>
@@ -66,16 +72,19 @@
         <visual name="camera_link_visual">
             <origin xyz="0.12949747000000017 -6.661338147750939e-18 -0.21103301000000035" rpy="-3.1308063019589895e-16 -1.665334536937735e-15 -3.081487911019576e-33" />
             <geometry>
-                <mesh filename="meshes/camera_link.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="package://cura_description/meshes/camera_link.stl" scale="0.001 0.001 0.001" />
             </geometry>
+            <material name="camera_link"/>
         </visual>
         <collision name="camera_link_collision">
-            <origin xyz="0.12949747000000017 -6.661338147750939e-18 -0.21103301000000035" rpy="-3.1308063019589895e-16 -1.665334536937735e-15 -3.081487911019576e-33" />
+            <origin xyz="0.0025 0 0.011" rpy="0 0 0" />
             <geometry>
-                <mesh filename="meshes/camera_link.stl" scale="0.001 0.001 0.001" />
+                <box size="0.02 0.1 0.022"/> 
             </geometry>
         </collision>
     </link>
+    
+    <!--Wheels-->
     <link name="f_wheel_r">
         <inertial>
             <origin xyz="-1.1546319456101628e-15 -4.440892098500626e-18 -0.007500000000000018" rpy="0.0 -0.0 0.0" />
@@ -83,15 +92,16 @@
             <inertia ixx="7.781462317218903e-05" iyy="7.78146231719323e-05" izz="0.00015114632321814475" ixy="0.0" iyz="1.0842021724855044e-19" ixz="-2.168404344971009e-19" />
         </inertial>
         <visual name="f_wheel_r_visual">
-            <origin xyz="-0.1000000000000001 0.023000000000000007 -0.14949999999999994" rpy="-1.570796326794897 1.0547118733938981e-15 6.1629758220391534e-33" />
+            <origin xyz="-0.1 0.023 -0.135" rpy="-1.5707963267948966 -0.0 0.0" />
             <geometry>
-                <mesh filename="meshes/f_wheel_r.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="package://cura_description/meshes/f_wheel_r.stl" scale="0.001 0.001 0.001" />
             </geometry>
+            <material name="wheels"/>
         </visual>
         <collision name="f_wheel_r_collision">
-            <origin xyz="-0.1000000000000001 0.023000000000000007 -0.14949999999999994" rpy="-1.570796326794897 1.0547118733938981e-15 6.1629758220391534e-33" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="meshes/f_wheel_r.stl" scale="0.001 0.001 0.001" />
+                <cylinder radius="0.05" length="0.015"/>
             </geometry>
         </collision>
     </link>
@@ -102,15 +112,16 @@
             <inertia ixx="7.78146231721886e-05" iyy="7.781462317193143e-05" izz="0.00015114632321814475" ixy="-2.710505431213761e-19" iyz="-1.6263032587282567e-19" ixz="-2.168404344971009e-19" />
         </inertial>
         <visual name="f_wheel_l_visual">
-            <origin xyz="-0.09999999999999994 -0.02299999999999999 -0.149" rpy="1.5707963267948968 1.6653345369377353e-16 0.0" />
+            <origin xyz="-0.1 -0.023 -0.149" rpy="1.5707963267948966 -0.0 0.0" />
             <geometry>
-                <mesh filename="meshes/f_wheel_l.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="package://cura_description/meshes/f_wheel_l.stl" scale="0.001 0.001 0.001" />
             </geometry>
+            <material name="wheels"/>
         </visual>
         <collision name="f_wheel_l_collision">
-            <origin xyz="-0.09999999999999994 -0.02299999999999999 -0.149" rpy="1.5707963267948968 1.6653345369377353e-16 0.0" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="meshes/f_wheel_l.stl" scale="0.001 0.001 0.001" />
+                <cylinder radius="0.05" length="0.015"/>
             </geometry>
         </collision>
     </link>
@@ -121,15 +132,16 @@
             <inertia ixx="7.781462317218947e-05" iyy="7.78146231719323e-05" izz="0.00015114632321814496" ixy="0.0" iyz="-2.710505431213761e-19" ixz="-2.168404344971009e-19" />
         </inertial>
         <visual name="b_wheel_r_visual">
-            <origin xyz="0.09999999999999988 0.02300000000000007 -0.14949999999999994" rpy="-1.5707963267948963 -5.551115123125789e-17 1.0947644252537653e-47" />
+            <origin xyz="0.1 0.023 -0.135" rpy="-1.5707963267948966 -0.0 0.0" />
             <geometry>
-                <mesh filename="meshes/b_wheel_r.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="package://cura_description/meshes/b_wheel_r.stl" scale="0.001 0.001 0.001" />
             </geometry>
+            <material name="wheels"/>
         </visual>
         <collision name="b_wheel_r_collision">
-            <origin xyz="0.09999999999999988 0.02300000000000007 -0.14949999999999994" rpy="-1.5707963267948963 -5.551115123125789e-17 1.0947644252537653e-47" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="meshes/b_wheel_r.stl" scale="0.001 0.001 0.001" />
+                <cylinder radius="0.05" length="0.015"/>
             </geometry>
         </collision>
     </link>
@@ -140,18 +152,20 @@
             <inertia ixx="7.781462317218773e-05" iyy="7.781462317193143e-05" izz="0.0001511463232181441" ixy="1.0842021724855044e-19" iyz="1.0842021724855044e-19" ixz="0.0" />
         </inertial>
         <visual name="b_wheel_l_visual">
-            <origin xyz="0.1 -0.023000000000000003 -0.14900000000000005" rpy="1.5707963267948963 4.996003610813204e-16 0.0" />
+            <origin xyz="0.1 -0.023 -0.149" rpy="1.5707963267948966 -0.0 0.0" />
             <geometry>
-                <mesh filename="meshes/b_wheel_l.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="package://cura_description/meshes/b_wheel_l.stl" scale="0.001 0.001 0.001" />
             </geometry>
+            <material name="wheels"/>
         </visual>
         <collision name="b_wheel_l_collision">
-            <origin xyz="0.1 -0.023000000000000003 -0.14900000000000005" rpy="1.5707963267948963 4.996003610813204e-16 0.0" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="meshes/b_wheel_l.stl" scale="0.001 0.001 0.001" />
+                <cylinder radius="0.05" length="0.015"/>
             </geometry>
         </collision>
     </link>
+    
     <link name="hmi">
         <inertial>
             <origin xyz="0.009071293031360598 5.098169701195674e-17 0.0158352964536687" rpy="0.0 -0.0 0.0" />
@@ -161,13 +175,14 @@
         <visual name="hmi_visual">
             <origin xyz="0.10499999999999984 6.661338147750939e-18 -0.15799999999999972" rpy="-7.728840207056554e-17 -1.665334536937734e-16 0.0" />
             <geometry>
-                <mesh filename="meshes/hmi.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="package://cura_description/meshes/hmi.stl" scale="0.001 0.001 0.001" />
             </geometry>
+            <material name="hmi"/>
         </visual>
         <collision name="hmi_collision">
             <origin xyz="0.10499999999999984 6.661338147750939e-18 -0.15799999999999972" rpy="-7.728840207056554e-17 -1.665334536937734e-16 0.0" />
             <geometry>
-                <mesh filename="meshes/hmi.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="package://cura_description/meshes/hmi.stl" scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
     </link>
@@ -180,13 +195,14 @@
         <visual name="storage_link_visual">
             <origin xyz="-0.030000000000000113 1.4322126339888328e-47 -0.03799999999999993" rpy="-1.3123729491118374e-16 -2.2204460492503146e-16 -4.774042113296092e-46" />
             <geometry>
-                <mesh filename="meshes/storage_link.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="package://cura_description/meshes/storage_link.stl" scale="0.001 0.001 0.001" />
             </geometry>
+            <material name="storage_link"/>
         </visual>
         <collision name="storage_link_collision">
-            <origin xyz="-0.030000000000000113 1.4322126339888328e-47 -0.03799999999999993" rpy="-1.3123729491118374e-16 -2.2204460492503146e-16 -4.774042113296092e-46" />
+            <origin xyz="0 0 0.015" rpy="0 0 0" />
             <geometry>
-                <mesh filename="meshes/storage_link.stl" scale="0.001 0.001 0.001" />
+                <box size="0.2 0.2 0.03" />
             </geometry>
         </collision>
     </link>
@@ -202,62 +218,73 @@
             <geometry>
                 <mesh filename="package://cura_description/meshes/lidar_link.stl" scale="0.001 0.001 0.001" />
             </geometry>
+            <material name="lidar_link"/>
         </visual>
         <collision name="lidar_link_collision">
-            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <origin xyz="0.0 0.0 -0.0205" rpy="0.0 0.0 0.0" />
             <geometry>
-                <mesh filename="package://cura_description/meshes/lidar_link.stl" scale="0.001 0.001 0.001" />
+                <cylinder radius="0.035" length="0.041"/>
             </geometry>
         </collision>
     </link>
-    
-    <joint name="base_link_sanitation_tank_joint" type="fixed">
+
+    <joint name="base_link_joint" type="fixed">
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0" />
+        <parent link="base_footprint" />
+        <child link="base_link" />
+    </joint>
+    <joint name="sanitation_tank_joint" type="fixed">
         <origin xyz="0.13 0.0 0.008" rpy="0.0 -0.0 1.5707963267948966" />
         <parent link="base_link" />
         <child link="sanitation_tank" />
     </joint>
-    <joint name="base_link_f_wheel_r_revolute" type="continuous">
-        <origin xyz="0.1 -0.1495 -0.023" rpy="1.5707963267948966 -0.0 0.0" />
+    <joint name="b_wheel_r_revolute" type="continuous">
+        <origin xyz="-0.1 -0.1495 -0.023" rpy="-1.5707963267948966 -0.0 0.0" />
         <parent link="base_link" />
-        <child link="f_wheel_r" />
+        <child link="b_wheel_r" />
         <axis xyz="0.0 0.0 1.0" />
     </joint>
-    <joint name="base_link_f_wheel_l_revolute" type="continuous">
+    <joint name="f_wheel_l_revolute" type="continuous">
         <origin xyz="0.1 0.149 -0.023" rpy="-1.5707963267948966 -0.0 0.0" />
         <parent link="base_link" />
         <child link="f_wheel_l" />
         <axis xyz="0.0 0.0 1.0" />
     </joint>
-    <joint name="base_link_b_wheel_l_revolute" type="continuous">
+    <joint name="b_wheel_l_revolute" type="continuous">
         <origin xyz="-0.1 0.149 -0.023" rpy="-1.5707963267948966 -0.0 0.0" />
         <parent link="base_link" />
         <child link="b_wheel_l" />
         <axis xyz="0.0 0.0 1.0" />
     </joint>
-    <joint name="base_link_b_wheel_r_revolute" type="continuous">
-        <origin xyz="-0.1 -0.1495 -0.023" rpy="1.5707963267948966 -0.0 0.0" />
+    <joint name="f_wheel_r_revolute" type="continuous">
+        <origin xyz="0.1 -0.1495 -0.023" rpy="-1.5707963267948966 -0.0 0.0" />
         <parent link="base_link" />
-        <child link="b_wheel_r" />
+        <child link="f_wheel_r" />
         <axis xyz="0.0 0.0 1.0" />
     </joint>
-    <joint name="base_link_unltrasonic_humidifier_joint" type="fixed">
+    <joint name="ultrasonic_humidifier_joint" type="fixed">
         <origin xyz="-0.08 0.0 0.008" rpy="-1.5707963267948966 -0.0 -1.5707963267948966" />
         <parent link="base_link" />
         <child link="ultrasonic_humidifier" />
     </joint>
-    <joint name="base_link_hmi_joint" type="fixed">
+    <joint name="hmi_joint" type="fixed">
         <origin xyz="-0.105 0.0 0.158" rpy="0.0 -0.0 0.0" />
         <parent link="base_link" />
         <child link="hmi" />
     </joint>
-    <joint name="hmi_camera_joint" type="fixed">
+    <joint name="camera_joint" type="fixed">
         <origin xyz="-0.024497470000000004 0.0 0.05303300999999998" rpy="0.0 -0.0 0.0" />
         <parent link="hmi" />
         <child link="camera_link" />
     </joint>
-    <joint name="sanitation_tank_storage_joint" type="fixed">
+    <joint name="storage_joint" type="fixed">
         <origin xyz="0.0 0.1 0.03" rpy="0.0 9.86076131526265e-32 -1.5707963267948966" />
         <parent link="sanitation_tank" />
         <child link="storage_link" />
     </joint>
-</robot>
+    <joint name="lidar_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="0.0 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="lidar_link"/>
+    </joint>
+</robot>    
