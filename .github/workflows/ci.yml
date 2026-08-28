@@ -2,28 +2,36 @@ name: CI
 
 on:
   push:
-      branches: [main]
-        pull_request:
-            branches: [main]
+    branches: [main]
 
-            jobs:
-              build-and-test:
-                  runs-on: ubuntu-24.04
-                      container:
-                            image: ros:jazzy
+  pull_request:
+    branches: [main]
 
-                                steps:
-                                      - uses: actions/checkout@v4
+jobs:
+  build-and-test:
+    runs-on: ubuntu-24.04
 
-                                            - name: Install dependencies
-                                                    run: |
-                                                              cd ros2_ws
-                                                                        apt-get update
-                                                                                  rosdep update
-                                                                                            rosdep install --from-paths src --ignore-src -r -y
+    container:
+      image: ros:jazzy
 
-                                                                                                  - name: Build
-                                                                                                          run: |
-                                                                                                                    cd ros2_ws
-                                                                                                                              . /opt/ros/jazzy/setup.sh
-                                                                                                                                        colcon build && colcon test
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          cd ros2_ws
+          apt-get update
+          rosdep update
+          rosdep install --from-paths src --ignore-src -r -y
+
+      - name: Build
+        run: |
+          cd ros2_ws
+          . /opt/ros/jazzy/setup.sh
+          colcon build
+
+      - name: Test
+        run: |
+          cd ros2_ws
+          . /opt/ros/jazzy/setup.sh
+          colcon test
