@@ -713,6 +713,34 @@ cortex-feature-simulation/
 │       ├── cura.gif
 │       └── ReadME.md
 │
+cura-dashboard/
+├── index.html                  # Home / main dashboard
+├── launch.sh                   # Single-point dashboard launcher
+├── README.md                   # Project documentation
+│
+├── pages/
+│   ├── mission.html            # Mission queue
+│   ├── navigation.html         # Manual navigation and live position
+│   ├── inventory.html          # Inventory management
+│   ├── system.html             # System diagnostics
+│   ├── messages.html           # Activity and message log
+│   └── settings.html           # Dashboard settings
+│
+|── assets/
+|   ├── css/
+|  │   └── style.css           # Shared stylesheet
+|  │
+|  └── js/
+|       ├── state.js            # Shared persistent application state
+|       ├── ui.js               # Shared UI, icons, topbar, sidebar and simulation tick
+|       ├── dashboard.js        # Home dashboard logic
+|       ├── mission.js          # Mission page logic
+|       ├── navigation.js       # Navigation page logic
+|       ├── inventory.js        # Inventory page logic
+|       ├── system.js           # System diagnostics logic
+|       ├── messages.js         # Messages page logic
+|       └── settings.js         # Settings page logic
+|
 ├── ros2_ws/
 │   └── src/
 │       │
