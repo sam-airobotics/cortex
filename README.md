@@ -8,13 +8,11 @@ The simulation integrates a four-wheel differential-drive platform with **LiDAR,
 
 ---
 
-### 🎥 Project Demonstration
+### 🎥 Project
 
-<a href="assets/videos/cura.gif">
-  <img src="assets/videos/cura.gif" width="700" alt="Cura Simulation">
+<a href="assets/videos/cura_animation.svg">
+  <img src="assets/videos/cura_animation.svg" width="700" alt="Cura Simulation">
 </a>
-
-Click the GIF above to view the Cura simulation demonstration.
 
 </div>
 
